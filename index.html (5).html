@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ASS Auto Garage | Premium Car Painting &amp; Auto Body Repair</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#b9eaff",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary-container": "#005d75",
+                    "on-primary-fixed": "#241a00",
+                    "primary-container": "#f4c542",
+                    "inverse-primary": "#765b00",
+                    "primary-fixed": "#ffdf94",
+                    "on-primary-container": "#6b5200",
+                    "on-primary-fixed-variant": "#594400",
+                    "primary-fixed-dim": "#efc13e",
+                    "surface-container-highest": "#353535",
+                    "error-container": "#93000a",
+                    "surface-bright": "#393939",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-tint": "#efc13e",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "inverse-on-surface": "#313030",
+                    "surface-variant": "#353535",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-surface": "#e5e2e1",
+                    "primary": "#ffe4a8",
+                    "background": "#131313",
+                    "surface-container-low": "#1b1b1b",
+                    "on-tertiary": "#003544",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#001f29",
+                    "surface-container-lowest": "#0e0e0e",
+                    "tertiary-container": "#6cd8ff",
+                    "surface-dim": "#131313",
+                    "on-error": "#690005",
+                    "on-secondary": "#2f3131",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary": "#c6c6c7",
+                    "tertiary": "#c5edff",
+                    "secondary-container": "#454747",
+                    "on-tertiary-fixed-variant": "#004d62",
+                    "surface": "#131313",
+                    "error": "#ffb4ab",
+                    "outline": "#9a907b",
+                    "secondary-fixed": "#e2e2e2",
+                    "surface-container": "#20201f",
+                    "on-surface-variant": "#d1c5ae",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-primary": "#3e2e00",
+                    "tertiary-fixed-dim": "#67d4fa",
+                    "on-background": "#e5e2e1",
+                    "outline-variant": "#4e4634"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "stack-sm": "12px",
+                    "base": "8px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "stack-lg": "48px",
+                    "stack-md": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Montserrat"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .yellow-glow:hover {
+            box-shadow: 0 0 25px rgba(244, 197, 66, 0.2);
+        }
+        .smooth-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .image-overlay {
+            background: linear-gradient(to right, rgba(19, 19, 13, 0.9) 0%, rgba(19, 19, 13, 0.4) 100%);
+        }
+        .slider-handle {
+            cursor: ew-resize;
+        }
+        @keyframes scroll-bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        .animate-scroll {
+            animation: scroll-bounce 2s infinite;
+        }
+        header{background-color: #22221C;}
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Header / Navigation -->
+<header class="fixed top-0 w-full z-50 glass-nav" style="background-color: #22221C;">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<img alt="ASS Auto Garage" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRjmuZRtspax2yJA2i6Gx0ENlxKYPvbTI7UxlQbDKn2wtIQ9ECf3AhzHLMQoIcHaD6VQlq4pb24BsQ36u1XrmdyAgLvAQdi9w2Mt5N5j2sEdT52WrXQoYM3K0-4OaD1hch3hv_7t8U9LvYZbbJ82WHjVfUiRlt__PvYCSS4Z0bu41mNPi1SicJOoMEZjAG7zOPyIXV8xGIKuRbhdYlSCiScg6fx4m-rLj6u97z5uqaNp9r1q8Fxq5v_Q"/>
+<span class="font-headline-md text-headline-md font-bold text-primary-container hidden sm:block">ASS Auto Garage</span>
+</div>
+<div class="hidden lg:flex items-center gap-8">
+<a class="font-body-md text-primary-container font-bold border-b-2 border-primary-container pb-1" href="home.html">Home</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="about.html">About</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="serviece.html">Services</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="gallery.html">Gallery</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="offerc.html">Offers</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="contact.html">Contact Us</a>
+</div>
+<a href="book.html"><button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-label-md uppercase active:scale-95 transition-all yellow-glow">
+                Book Now
+            </button></a>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative h-screen min-h-[700px] flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 image-overlay z-10"></div>
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic, high-contrast shot of a sleek black luxury sports car parked inside a high-tech, modern automotive paint booth with bright neon panel lights overhead reflecting on the polished surfaces. The atmosphere is sophisticated and premium with deep shadows and sharp highlights, emphasizing technical perfection and elite automotive care." style="background-image: url('images/au.jpg')"></div>
+</div>
+<div class="relative z-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<span class="inline-block px-4 py-1 rounded-full bg-primary-container/20 border border-primary-container/30 text-primary-container font-label-md uppercase tracking-widest">Master Technicians</span>
+<h1 class="font-display-lg text-display-lg text-white leading-tight">
+                     Best Car Painting <span class="text-primary-container">in Khanpur</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Professional Denting, Painting, Scratch Removal &amp; Color Matching Services in Khanpur, Punjab, Pakistan. We bring your vehicle back to its factory glory.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a href="book.html"><button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl font-label-md uppercase hover:opacity-90 active:scale-95 transition-all shadow-xl shadow-primary-container/10">Book Appointment</button></a>
+<a href="serviece.html"><button class="px-8 py-4 rounded-xl font-label-md uppercase border border-white/20 hover:bg-white/5 active:scale-95 transition-all text-white">View Services</button></a>
+</div>
+</div>
+<!-- Floating Hero Cards -->
+<div class="hidden lg:flex flex-col gap-6 items-end">
+<div class="glass-card p-6 rounded-2xl w-80 translate-x-[-10%] animate-pulse">
+<div class="flex items-center gap-4 mb-3">
+<div class="bg-primary-container p-3 rounded-lg">
+<span class="material-symbols-outlined text-black" style="font-variation-settings: 'FILL' 1;">palette</span>
+</div>
+<div>
+<p class="font-label-md text-white">Color Match</p>
+<p class="text-xs text-on-surface-variant">Precision 100% Accuracy</p>
+</div>
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl w-80 translate-x-[5%]">
+<div class="flex items-center gap-4 mb-3">
+<div class="bg-primary-container p-3 rounded-lg">
+<span class="material-symbols-outlined text-black" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<p class="font-label-md text-white">Lifetime Warranty</p>
+<p class="text-xs text-on-surface-variant">On Premium Paint Jobs</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-scroll z-20">
+<span class="text-xs text-on-surface-variant font-label-md uppercase tracking-tighter">Explore</span>
+<span class="material-symbols-outlined text-primary-container">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Why Choose Us - Bento Style -->
+<section class="py-stack-lg bg-surface-container-lowest">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg">Excellence in <span class="text-primary-container">Every Detail</span></h2>
+<div class="w-24 h-1 bg-primary-container mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="glass-card p-8 rounded-3xl hover:bg-white/[0.07] transition-all group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6 block group-hover:scale-110 transition-transform">construction</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-white">Expert Painters</h3>
+<p class="text-on-surface-variant font-body-md">Our team consists of certified masters with decades of experience in high-end automotive aesthetics.</p>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-8 rounded-3xl hover:bg-white/[0.07] transition-all group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6 block group-hover:scale-110 transition-transform">diamond</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-white">Factory Finish</h3>
+<p class="text-on-surface-variant font-body-md">We utilize premium coatings and clearcoats that match original factory specifications perfectly.</p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-8 rounded-3xl hover:bg-white/[0.07] transition-all group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6 block group-hover:scale-110 transition-transform">precision_manufacturing</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-white">Advanced Equipment</h3>
+<p class="text-on-surface-variant font-body-md">State-of-the-art paint booths and infrared curing lamps ensure a dust-free, durable bond.</p>
+</div>
+<!-- Card 4 -->
+<div class="glass-card p-8 rounded-3xl hover:bg-white/[0.07] transition-all group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6 block group-hover:scale-110 transition-transform">speed</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-white">Fast Delivery</h3>
+<p class="text-on-surface-variant font-body-md">Efficiency without compromise. Get your car back on the road in record time.</p>
+</div>
+<!-- Card 5 -->
+<div class="glass-card p-8 rounded-3xl hover:bg-white/[0.07] transition-all group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6 block group-hover:scale-110 transition-transform">payments</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-white">Affordable Prices</h3>
+<p class="text-on-surface-variant font-body-md">Premium quality at competitive rates, offering the best value in Khanpur and beyond.</p>
+</div>
+<!-- Card 6 -->
+<div class="glass-card p-8 rounded-3xl hover:bg-white/[0.07] transition-all group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6 block group-hover:scale-110 transition-transform">sentiment_very_satisfied</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-white">100% Satisfaction</h3>
+<p class="text-on-surface-variant font-body-md">Your happiness is our priority. We offer a full quality guarantee on all labor and parts.</p>
+</div>
+</div>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Before/After Slider -->
+<section class="py-stack-lg bg-surface-container">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-white">Seeing is <span class="text-primary-container">Believing</span></h2>
+<p class="text-on-surface-variant mt-2 font-body-md">Slide to see our transformation of a damaged vehicle into a masterpiece.</p>
+</div>
+<div class="relative max-w-4xl mx-auto h-[500px] rounded-3xl overflow-hidden glass-card group">
+<!-- After Image -->
+<div class="absolute inset-0 w-full h-full">
+<div class="w-full h-full bg-cover bg-center" data-alt="A showroom-condition black sports car with a flawless, mirror-like gloss finish, reflecting professional studio lighting, showing no signs of previous wear or damage." style="background-image: url('images/jj.png')"></div>
+</div>
+<!-- Before Image (Clipped) -->
+<div class="absolute inset-0 w-1/2 h-full z-10 border-r-2 border-primary-container overflow-hidden" id="before-image">
+<div class="w-[896px] h-full bg-cover bg-center grayscale brightness-50" data-alt="A damaged black car with significant scratches, paint fading, and visible dents on the front fender, showing signs of neglect and road wear." style="background-image: url('images/jeep.jpeg')"></div>
+<div class="absolute inset-0 bg-black/30"></div>
+<div class="absolute top-4 left-4 bg-black/60 px-3 py-1 rounded text-xs text-white font-label-md">BEFORE</div>
+</div>
+<div class="absolute top-4 right-4 bg-primary-container px-3 py-1 rounded text-xs text-black font-label-md z-20">AFTER</div>
+<!-- Slider Control -->
+<div class="absolute top-0 bottom-0 left-1/2 w-1 bg-primary-container z-30 cursor-ew-resize flex items-center justify-center" id="slider-handle">
+<div class="w-10 h-10 rounded-full bg-primary-container shadow-lg shadow-primary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-black select-none">unfold_more</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-stack-lg">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-white">Our 4-Step <span class="text-primary-container">Workflow</span></h2>
+</div>
+<div class="relative">
+<div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+<!-- Step 1 -->
+<div class="text-center space-y-6">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border-2 border-primary-container flex items-center justify-center mx-auto glass-card">
+<span class="text-2xl font-bold text-primary-container">01</span>
+</div>
+<h4 class="font-headline-md text-white">Inspection</h4>
+<p class="text-on-surface-variant font-body-md px-4">Detailed assessment of body damage and material requirements.</p>
+</div>
+<!-- Step 2 -->
+<div class="text-center space-y-6">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border-2 border-primary-container flex items-center justify-center mx-auto glass-card">
+<span class="text-2xl font-bold text-primary-container">02</span>
+</div>
+<h4 class="font-headline-md text-white">Preparation</h4>
+<p class="text-on-surface-variant font-body-md px-4">Surface sanding, masking, and priming for perfect paint adhesion.</p>
+</div>
+<!-- Step 3 -->
+<div class="text-center space-y-6">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border-2 border-primary-container flex items-center justify-center mx-auto glass-card">
+<span class="text-2xl font-bold text-primary-container">03</span>
+</div>
+<h4 class="font-headline-md text-white">Painting</h4>
+<p class="text-on-surface-variant font-body-md px-4">Precision spraying and high-temperature oven curing.</p>
+</div>
+<!-- Step 4 -->
+<div class="text-center space-y-6">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border-2 border-primary-container flex items-center justify-center mx-auto glass-card">
+<span class="text-2xl font-bold text-primary-container">04</span>
+</div>
+<h4 class="font-headline-md text-white">Quality Check</h4>
+<p class="text-on-surface-variant font-body-md px-4">Polishing and final detailing to ensure a perfect mirror finish.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Slider -->
+<section class="py-stack-lg bg-surface-container-low overflow-hidden">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-center mb-16">What Our <span class="text-primary-container">Clients Say</span></h2>
+<div class="flex gap-6 transition-transform duration-500 cursor-grab active:cursor-grabbing" id="testimonial-carousel">
+<!-- Testimonial 1 -->
+<div class="min-w-[350px] md:min-w-[450px] glass-card p-10 rounded-3xl space-y-6 shrink-0">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface text-lg italic font-body-md">"The team at Abdul shakoor saeedi Auto Garage is incredible. My SUV had several deep scratches, and after their service, it looks like it just came out of the showroom. Best in Khanpur!"</p>
+
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a satisfied male customer in his 40s with a professional look, clean background, high quality studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY9uShj1WnrTkFFvJiRxSrsVqDBdqYS57r2JQxxmt34Iwt5lJNWzhN691ri72HqR0zUk6kJ-gCOdByVFXdD-NSo0rjc3vXWuU_kEc7jS3FIaegwqVx_nxpTUUVeiZPlzwyunqZhpgzqpeyRCubDryDAoeB3RQQhSai16KZbJuItBVbEnGD1QW1aGVS_IJWUHlIk3uPnPXTJrrdroNyaDkw2FOaUhaCt7_I4ujdghVu6XnKSGYXYAc7LQ"/>
+</div>
+<div>
+<p class="font-headline-md text-sm text-white">Ahmed Raza</p>
+<p class="text-xs text-on-surface-variant">Toyota Fortuner Owner</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="min-w-[350px] md:min-w-[450px] glass-card p-10 rounded-3xl space-y-6 shrink-0">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface text-lg italic font-body-md">"Very professional service. The color matching was 100% accurate. I was worried about the metallic finish, but they nailed it. Highly recommended."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young professional man smiling, outdoors with a luxury car blurred in the background, warm natural sunlight, premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaPnuz4Hn9CB0H0Xs83L3KCrorZS3ijL68VvHwXNl8LGe_B5hbmFW-Jb32G4rwYjaug77zj4pziW_Lk2Jvq2Z6YmsARgiR4JYhsnN8sWVuSi5IaKzTR8NDsP0w9DZ-o0DFKuATVBHFd7X0sXCbed-pmsZ58GE7y0EmmCNvO8bmlJJ5LVGpMBzu3NnTGxCEnVSSP2vuj-qFZZqrO-oyKWCp8jc8mWHhv4CKG7V0M80vHyfujH5hdF8Rqw"/>
+</div>
+<div>
+<p class="font-headline-md text-sm text-white">Zain Ali</p>
+<p class="text-xs text-on-surface-variant">Honda Civic Owner</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="min-w-[350px] md:min-w-[450px] glass-card p-10 rounded-3xl space-y-6 shrink-0">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface text-lg italic font-body-md">"Fast, affordable, and honest. They didn't try to oversell me. The quality of work on the bumper repair was top notch."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up face of a satisfied customer, soft lighting, professional garage interior in background, high contrast, warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZAR6r1wYGqX61MHngh6rtMiaeOUUCudmLhGAZbvlau_Ooelwq6zIp96twsXm7ezsn_CUa7UZK3KiSp1k9M2PEXVxCkx8dr29kFDp_shUsWWKloNNTWBmuOpxrMEyywBvJpeDm-Hp5htW4OBsObdGM57Cz0sOWUQamN7hKUe0UWH59oYAMLZEftG7lttR3DNOhHiBYB0jw02_fF_lxc-Htn1C6oJvmGnIuQbFmgkVKVRKLWDZQgEChVw"/>
+</div>
+<div>
+<p class="font-headline-md text-sm text-white">Bilal Khan</p>
+<p class="text-xs text-on-surface-variant">Suzuki Swift Owner</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-stack-lg bg-primary-container">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col lg:flex-row justify-between items-center gap-8 text-center lg:text-left">
+<div class="space-y-4">
+<h2 class="font-display-lg text-4xl md:text-5xl text-on-primary-container font-extrabold uppercase">Give Your Car a Brand-New Look</h2>
+<p class="text-on-primary-container/80 text-lg font-body-md">Schedule your free inspection today in Khanpur.</p>
+</div>
+<a href="https://wa.me/923018675548"><button class="bg-black text-white px-12 py-5 rounded-2xl font-label-md uppercase hover:bg-black/90 active:scale-95 transition-all shadow-2xl">Book Appointment</button></a>
+</div>
+</section>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/923018675548" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="white">
+    <path d="M19.11 17.51c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.67-2.1-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.08 2.9 1.23 3.1.15.2 2.12 3.24 5.14 4.55.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.17-2.42-.07-.12-.27-.2-.57-.35z"/>
+    <path d="M16.02 3C8.83 3 3 8.82 3 16c0 2.54.74 5.02 2.13 7.14L3 29l5.99-2.08A12.93 12.93 0 0 0 16.02 29C23.2 29 29 23.18 29 16S23.2 3 16.02 3zm0 23.5c-2.1 0-4.15-.57-5.94-1.66l-.42-.25-3.56 1.24 1.17-3.47-.27-.45A10.44 10.44 0 0 1 5.5 16C5.5 10.2 10.22 5.5 16.02 5.5S26.5 10.2 26.5 16s-4.7 10.5-10.48 10.5z"/>
+  </svg>
+</a>
+
+<style>
+.whatsapp-float{
+    position:fixed;
+    right:30px;
+    bottom:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+    z-index:9999;
+    transition:.3s;
+    text-decoration:none;
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.12);
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+@media(max-width:768px){
+    .whatsapp-float{
+        width:70px;
+        height:70px;
+        right:35px;
+        bottom:30px;
+    }
+}
+</style>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-white/5 pt-stack-lg pb-10">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-stack-md">
+<!-- Brand -->
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<img alt="ASS Auto Garage" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRjmuZRtspax2yJA2i6Gx0ENlxKYPvbTI7UxlQbDKn2wtIQ9ECf3AhzHLMQoIcHaD6VQlq4pb24BsQ36u1XrmdyAgLvAQdi9w2Mt5N5j2sEdT52WrXQoYM3K0-4OaD1hch3hv_7t8U9LvYZbbJ82WHjVfUiRlt__PvYCSS4Z0bu41mNPi1SicJOoMEZjAG7zOPyIXV8xGIKuRbhdYlSCiScg6fx4m-rLj6u97z5uqaNp9r1q8Fxq5v_Q"/>
+<span class="font-headline-sm text-headline-sm font-bold text-white">ASS Auto Garage</span>
+</div>
+<p class="text-on-surface-variant text-sm font-body-md">The gold standard in luxury automotive paint and body repair in Punjab, Pakistan. Precision, passion, and perfection in every stroke.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:text-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-sm">qr_code_2</span></a>
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:text-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-sm">share</span></a>
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:text-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-sm">video_library</span></a>
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:text-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-sm">chat</span></a>
+</div>
+</div>
+<!-- Links -->
+<div class="space-y-6">
+<h4 class="font-headline-sm text-white">Quick Links</h4>
+<ul class="space-y-3 text-sm text-on-surface-variant font-body-md">
+<li><a class="hover:text-primary-container transition-colors" href="#">Home</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Services</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Gallery</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Special Offers</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Services List -->
+<div class="space-y-6">
+<h4 class="font-headline-sm text-white">Services</h4>
+<ul class="space-y-3 text-sm text-on-surface-variant font-body-md">
+<li>Denting &amp; Painting</li>
+<li>Full Body Overhaul</li>
+<li>Accident Repair</li>
+<li>Custom Color Mix</li>
+<li>Ceramic Coating</li>
+</ul>
+</div>
+<!-- Contact -->
+<div class="space-y-6">
+<h4 class="font-headline-sm text-white">Contact Info</h4>
+<div class="space-y-4 text-sm text-on-surface-variant font-body-md">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary-container">location_on</span>
+<p>                 Zahir pir Road
+                   near Sadar police station,
+                    Khanpur, district RYK</p>
+</div>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary-container">call</span>
+<p>+92 301 8675548</p>
+</div>
+
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary-container">schedule</span>
+<p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mt-stack-lg pt-6 border-t border-white/5 text-center">
+<p class="text-on-surface-variant text-xs font-body-md">© 2026 ASS Auto Garage. Khanpur, Punjab, Pakistan. All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+        // Before/After Slider Functionality
+        const slider = document.getElementById('slider-handle');
+        const beforeImg = document.getElementById('before-image');
+        const container = slider.parentElement;
+
+        let isDragging = false;
+
+        const moveSlider = (e) => {
+            if (!isDragging) return;
+            const containerRect = container.getBoundingClientRect();
+            let posX = (e.pageX || e.touches[0].pageX) - containerRect.left;
+            
+            if (posX < 0) posX = 0;
+            if (posX > containerRect.width) posX = containerRect.width;
+
+            const percentage = (posX / containerRect.width) * 100;
+            slider.style.left = `${percentage}%`;
+            beforeImg.style.width = `${percentage}%`;
+        };
+
+        slider.addEventListener('mousedown', () => isDragging = true);
+        slider.addEventListener('touchstart', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+        window.addEventListener('touchend', () => isDragging = false);
+        window.addEventListener('mousemove', moveSlider);
+        window.addEventListener('touchmove', moveSlider);
+
+        // Simple Carousel Drag/Scroll simulation
+        const carousel = document.getElementById('testimonial-carousel');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
+        carousel.addEventListener('mouseleave', () => isDown = false);
+        carousel.addEventListener('mouseup', () => isDown = false);
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2;
+            carousel.scrollLeft = scrollLeft - walk;
+        });
+
+        // Smooth Scroll for Nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body></html>

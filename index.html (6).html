@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Offers | ASS Auto Garage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#efc13e",
+            "tertiary-fixed": "#b9eaff",
+            "secondary-fixed-dim": "#c6c6c7",
+            "primary-fixed": "#ffdf94",
+            "on-tertiary-container": "#005d75",
+            "on-primary-container": "#6b5200",
+            "secondary-fixed": "#e2e2e2",
+            "on-error": "#690005",
+            "on-background": "#e5e2e1",
+            "surface-container-high": "#2a2a2a",
+            "on-error-container": "#ffdad6",
+            "primary-container": "#f4c542",
+            "background": "#131313",
+            "error-container": "#93000a",
+            "surface-container-lowest": "#0e0e0e",
+            "on-primary-fixed": "#241a00",
+            "surface-container-low": "#1b1b1b",
+            "primary": "#ffe4a8",
+            "inverse-on-surface": "#313030",
+            "surface-container": "#20201f",
+            "outline-variant": "#4e4634",
+            "on-secondary": "#2f3131",
+            "tertiary": "#c5edff",
+            "on-secondary-fixed-variant": "#454747",
+            "surface-container-highest": "#353535",
+            "tertiary-fixed-dim": "#67d4fa",
+            "on-tertiary": "#003544",
+            "secondary": "#c6c6c7",
+            "surface": "#131313",
+            "surface-variant": "#353535",
+            "outline": "#9a907b",
+            "surface-tint": "#efc13e",
+            "on-tertiary-fixed-variant": "#004d62",
+            "on-secondary-fixed": "#1a1c1c",
+            "on-tertiary-fixed": "#001f29",
+            "on-primary": "#3e2e00",
+            "inverse-primary": "#765b00",
+            "tertiary-container": "#6cd8ff",
+            "secondary-container": "#454747",
+            "error": "#ffb4ab",
+            "on-secondary-container": "#b4b5b5",
+            "inverse-surface": "#e5e2e1",
+            "surface-bright": "#393939",
+            "on-surface-variant": "#d1c5ae",
+            "on-surface": "#e5e2e1",
+            "surface-dim": "#131313",
+            "on-primary-fixed-variant": "#594400"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "20px",
+            "gutter": "24px",
+            "stack-lg": "48px",
+            "stack-sm": "12px",
+            "stack-md": "24px",
+            "container-max": "1280px",
+            "margin-desktop": "64px",
+            "base": "8px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Montserrat"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Montserrat"],
+            "headline-lg-mobile": ["Montserrat"],
+            "display-lg": ["Montserrat"]
+          },
+          "fontSize": {
+            "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #F4C542;
+      transform: translateY(-4px);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .active-nav-border {
+      border-bottom: 2px solid #f4c542;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+      animation: fadeUp 0.6s ease-out forwards;
+    }
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+
+    header{background-color: #22221C;}
+  </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Header / Navigation -->
+<header class="fixed top-0 w-full z-50 glass-nav">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<img alt="ASS Auto Garage" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRjmuZRtspax2yJA2i6Gx0ENlxKYPvbTI7UxlQbDKn2wtIQ9ECf3AhzHLMQoIcHaD6VQlq4pb24BsQ36u1XrmdyAgLvAQdi9w2Mt5N5j2sEdT52WrXQoYM3K0-4OaD1hch3hv_7t8U9LvYZbbJ82WHjVfUiRlt__PvYCSS4Z0bu41mNPi1SicJOoMEZjAG7zOPyIXV8xGIKuRbhdYlSCiScg6fx4m-rLj6u97z5uqaNp9r1q8Fxq5v_Q"/>
+<span class="font-headline-md text-headline-md font-bold text-primary-container hidden sm:block">ASS Auto Garage</span>
+</div>
+<div class="hidden lg:flex items-center gap-8">
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="home.html">Home</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="about.html">About</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="serviece.html">Services</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="gallery.html">Gallery</a>
+<a class="font-body-md text-primary-container font-bold border-b-2 border-primary-container pb-1" href="offerc.html">Offers</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="contact.html">Contact Us</a>
+</div>
+<a href="book.html"><button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-label-md uppercase active:scale-95 transition-all yellow-glow">
+                Book Now
+            </button></a>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[80vh] w-full flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black/60 z-10"></div>
+<img class="w-full h-full object-cover" src="images/offer.jpg"/>
+</div>
+<div class="relative z-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-2xl animate-fade-up">
+<span class="text-primary-container font-label-md text-label-md tracking-widest uppercase mb-4 block">Limited Time Deals</span>
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-white mb-6 leading-none">Special Offers &amp; Packages for Khanpur!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Premium Car Painting, Repair and Restoration Packages at Affordable Prices. Engineered for perfection, priced for value.</p>
+<div class="flex flex-wrap gap-4">
+
+</div>
+</div>
+</div>
+</section>
+<!-- Intro Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+<div class="max-w-3xl mx-auto animate-fade-up">
+<h2 class="font-headline-lg text-headline-lg md:text-headline-lg text-white mb-4">Choose The Right Package For Your Vehicle</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">From minor scratch removals to complete showroom-quality restorations, our expert team utilizes cutting-edge technology and premium materials to ensure your vehicle returns to its peak aesthetic condition.</p>
+</div>
+</section>
+<!-- Package Cards (Bento-inspired Grid) -->
+<section class="pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-6 gap-gutter">
+<!-- Package 1: Full Car Paint -->
+<div class="md:col-span-3 glass-card p-8 rounded-3xl animate-fade-up stagger-1 group">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="format_paint">format_paint</span>
+<span class="bg-primary-container/10 text-primary-container px-3 py-1 rounded-full font-label-md text-[10px]">MOST POPULAR</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Full Car Paint Package</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Complete aesthetic transformation using premium gloss or matte finishes. Includes surface preparation, priming, and triple-layer clear coating.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-white font-headline-md text-headline-md"><span class="text-sm font-normal text-on-surface-variant"></span></span>
+<a href="https://wa.me/923018675548"><button class="text-primary-container font-label-md text-label-md group-hover:translate-x-2 transition-transform flex items-center gap-2">WhatsApp <span class="material-symbols-outlined text-sm">arrow_forward</span></button></a>
+</div>
+</div>
+<!-- Package 2: Full Jeep Paint -->
+<div class="md:col-span-3 glass-card p-8 rounded-3xl animate-fade-up stagger-2 group">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="directions_car">directions_car</span>
+<span class="bg-white/5 text-white/60 px-3 py-1 rounded-full font-label-md text-[10px]">SUV &amp; 4X4</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Full Jeep Paint Package</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Heavy-duty restoration specifically for larger vehicles. Extra-durable coating options available for off-road enthusiasts.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-white font-headline-md text-headline-md"><span class="text-sm font-normal text-on-surface-variant"></span></span>
+<a href="https://wa.me/923018675548"><button class="text-primary-container font-label-md text-label-md group-hover:translate-x-2 transition-transform flex items-center gap-2">WhatsApp <span class="material-symbols-outlined text-sm">arrow_forward</span></button></a>
+</div>
+</div>
+<!-- Package 3: Scratch Repair -->
+<div class="md:col-span-2 glass-card p-8 rounded-3xl animate-fade-up stagger-3 group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-8" data-icon="build">build</span>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Scratch Repair</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Professional removal of normal surface scratches and oxidation to restore original factory shine.</p>
+<span class="text-white font-headline-md text-headline-md block mb-4"><span class="text-sm font-normal text-on-surface-variant"></span></span>
+<a href="https://wa.me/923018675548"><button class="text-primary-container font-label-md text-label-md group-hover:translate-x-2 transition-transform flex items-center gap-2">WhatsApp <span class="material-symbols-outlined text-sm">arrow_forward</span></button></a>
+
+</div>
+<!-- Package 4: Some Parts Repair -->
+<div class="md:col-span-2 glass-card p-8 rounded-3xl animate-fade-up stagger-4 group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-8" data-icon="settings">settings</span>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Panel Repair &amp; Paint</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Targeted repair for individual components like doors, bumpers, or fenders. Seamless blending guaranteed.</p>
+<span class="text-white font-headline-md text-headline-md block mb-4"><span class="text-sm font-normal text-on-surface-variant"></span></span>
+<a href="https://wa.me/923018675548"><button class="text-primary-container font-label-md text-label-md group-hover:translate-x-2 transition-transform flex items-center gap-2">WhatsApp <span class="material-symbols-outlined text-sm">arrow_forward</span></button></a>
+
+</div>
+<!-- Package 5: Paint Matching -->
+<div class="md:col-span-2 glass-card p-8 rounded-3xl animate-fade-up stagger-5 group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-8" data-icon="palette">palette</span>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Paint Matching</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">High-precision computer-assisted color matching to ensure absolute consistency with your vehicle's current hue.</p>
+<span class="bg-primary-container/10 text-primary-container px-4 py-2 rounded-xl font-label-md text-label-md inline-block"></span>
+<a href="https://wa.me/923018675548"><button class="text-primary-container font-label-md text-label-md group-hover:translate-x-2 transition-transform flex items-center gap-2">WhatsApp <span class="material-symbols-outlined text-sm">arrow_forward</span></button></a>
+
+</div>
+</div>
+</section>
+<!-- Why Our Offers -->
+<section class="py-stack-lg bg-surface-container-low">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-2xl bg-primary-container/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-container text-3xl" data-icon="savings">savings</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-white mb-2">Affordable Packages</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Transparent pricing without hidden costs. We provide premium service that fits your budget.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-2xl bg-primary-container/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-container text-3xl" data-icon="verified">verified</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-white mb-2">Premium Materials</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">We use only high-grade paints and components to ensure a long-lasting, showroom finish.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-2xl bg-primary-container/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-container text-3xl" data-icon="engineering">engineering</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-white mb-2">Skilled Technicians</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Certified professionals with years of experience in high-end automotive restoration.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Professional Claims (Asymmetric Layout) -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row gap-gutter">
+<div class="md:w-1/3 glass-card p-10 rounded-3xl flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-white mb-6">Beyond Basic Maintenance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">We specialize in complex restoration and specialized vehicle upgrades that generic garages cannot handle.</p>
+</div>
+<div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<div class="glass-card p-8 rounded-3xl border-l-4 border-l-primary-container">
+<h4 class="font-headline-md text-headline-md text-white mb-2">Accident Repair</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Comprehensive structural and cosmetic repair following collisions. We restore safety and style.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl border-l-4 border-l-primary-container">
+<h4 class="font-headline-md text-headline-md text-white mb-2">Insurance Work</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Hassle-free insurance claim processing. We work directly with providers to get you back on the road.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl border-l-4 border-l-primary-container sm:col-span-2">
+<h4 class="font-headline-md text-headline-md text-white mb-2">Vehicle Upgrades</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Body kit installations, custom lighting, and performance aesthetic enhancements for the discerning owner.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Luxury CTA Banner -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="relative bg-primary-container rounded-[2rem] overflow-hidden p-12 md:p-20 text-center flex flex-col items-center group">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.2)_0%,_transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<h2 class="font-display-lg text-headline-lg md:text-display-lg text-on-primary-container font-black mb-6 relative z-10">Get Your Car Professional Treatment Today</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container/80 mb-10 max-w-2xl relative z-10">Experience the difference of technical mastery and artistic precision. Book your consultation now and unlock our exclusive offer pricing.</p>
+
+</div>
+</section>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/923018675548" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="white">
+    <path d="M19.11 17.51c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.67-2.1-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.08 2.9 1.23 3.1.15.2 2.12 3.24 5.14 4.55.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.17-2.42-.07-.12-.27-.2-.57-.35z"/>
+    <path d="M16.02 3C8.83 3 3 8.82 3 16c0 2.54.74 5.02 2.13 7.14L3 29l5.99-2.08A12.93 12.93 0 0 0 16.02 29C23.2 29 29 23.18 29 16S23.2 3 16.02 3zm0 23.5c-2.1 0-4.15-.57-5.94-1.66l-.42-.25-3.56 1.24 1.17-3.47-.27-.45A10.44 10.44 0 0 1 5.5 16C5.5 10.2 10.22 5.5 16.02 5.5S26.5 10.2 26.5 16s-4.7 10.5-10.48 10.5z"/>
+  </svg>
+</a>
+
+<style>
+.whatsapp-float{
+    position:fixed;
+    right:30px;
+    bottom:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+    z-index:9999;
+    transition:.3s;
+    text-decoration:none;
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.12);
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+@media(max-width:768px){
+    .whatsapp-float{
+        width:70px;
+        height:70px;
+        right:35px;
+        bottom:30px;
+    }
+}
+</style>
+<!-- Footer -->
+<footer class="bg-background border-t border-white/5 py-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="space-y-6">
+<div class="font-headline-md text-headline-md font-black text-primary">ASS Auto Garage</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Precision engineering for the automotive elite. Where technical mastery meets aesthetic perfection.</p>
+</div>
+<div>
+<h5 class="text-white font-label-md text-label-md mb-6">Services</h5>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li class="hover:text-primary transition-colors cursor-pointer">Full Body Paint</li>
+<li class="hover:text-primary transition-colors cursor-pointer">Ceramic Coating</li>
+<li class="hover:text-primary transition-colors cursor-pointer">Collision Repair</li>
+<li class="hover:text-primary transition-colors cursor-pointer">Interior Detailing</li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-label-md text-label-md mb-6">Garage Location</h5>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li>Khanpur, Punjab</li>
+<li>Mon - Sat: 9AM - 8PM</li>
+<li>Sun: By Appointment</li>
+<li class="text-primary">+92 301 8675548</li>
+</ul>
+</div>
+<div class="flex flex-col justify-between">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer">
+<span class="material-symbols-outlined text-xl">share</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer">
+<span class="material-symbols-outlined text-xl">camera</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer">
+<span class="material-symbols-outlined text-xl">location_on</span>
+</div>
+</div>
+<div class="mt-8 md:mt-0 font-label-md text-label-md text-on-surface-variant/50">
+          © 2026 ASS Auto Garage. Precision Engineering.
+        </div>
+</div>
+</div>
+</footer>
+<script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-fade-up').forEach(el => observer.observe(el));
+  </script>
+</body></html>

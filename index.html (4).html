@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gallery | ASS Auto Garage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdf94",
+                    "primary": "#ffe4a8",
+                    "on-surface": "#e5e2e1",
+                    "inverse-primary": "#765b00",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "surface-tint": "#efc13e",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary-fixed": "#b9eaff",
+                    "surface-dim": "#131313",
+                    "tertiary-container": "#6cd8ff",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary-fixed-variant": "#004d62",
+                    "surface-container-high": "#2a2a2a",
+                    "on-primary-fixed-variant": "#594400",
+                    "surface": "#131313",
+                    "on-secondary": "#2f3131",
+                    "on-tertiary-container": "#005d75",
+                    "surface-variant": "#353535",
+                    "on-primary-fixed": "#241a00",
+                    "primary-container": "#f4c542",
+                    "on-error": "#690005",
+                    "on-background": "#e5e2e1",
+                    "surface-container": "#20201f",
+                    "secondary-fixed": "#e2e2e2",
+                    "secondary-container": "#454747",
+                    "background": "#131313",
+                    "tertiary": "#c5edff",
+                    "surface-container-low": "#1b1b1b",
+                    "outline-variant": "#4e4634",
+                    "on-secondary-container": "#b4b5b5",
+                    "inverse-on-surface": "#313030",
+                    "on-primary-container": "#6b5200",
+                    "on-tertiary": "#003544",
+                    "on-surface-variant": "#d1c5ae",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "on-primary": "#3e2e00",
+                    "tertiary-fixed-dim": "#67d4fa",
+                    "surface-container-highest": "#353535",
+                    "secondary": "#c6c6c7",
+                    "outline": "#9a907b",
+                    "on-tertiary-fixed": "#001f29",
+                    "primary-fixed-dim": "#efc13e",
+                    "surface-bright": "#393939"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "container-max": "1280px",
+                    "stack-sm": "12px",
+                    "stack-md": "24px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "stack-lg": "48px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Montserrat"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            backdrop-filter: blur(16px) saturate(180%);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border: 1px solid rgba(244, 197, 66, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .nav-glass {
+            backdrop-filter: blur(24px);
+            background: rgba(19, 19, 19, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .before-after-slider {
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+        .before-after-slider .before-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: inset(0 50% 0 0);
+            z-index: 2;
+        }
+        .before-after-slider .after-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .before-after-slider .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #f4c542;
+            cursor: ew-resize;
+            z-index: 10;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px rgba(244, 197, 66, 0.5);
+        }
+        .before-after-slider .slider-handle::after {
+            content: "↔";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #f4c542;
+            color: black;
+            padding: 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .gallery-item {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .masonry {
+            column-count: 1;
+            column-gap: 24px;
+        }
+        @media (min-width: 768px) { .masonry { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry { column-count: 3; } }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+        header{background-color: #22221C;}
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- Header / Navigation -->
+<header class="fixed top-0 w-full z-50 glass-nav">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<img alt="ASS Auto Garage" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRjmuZRtspax2yJA2i6Gx0ENlxKYPvbTI7UxlQbDKn2wtIQ9ECf3AhzHLMQoIcHaD6VQlq4pb24BsQ36u1XrmdyAgLvAQdi9w2Mt5N5j2sEdT52WrXQoYM3K0-4OaD1hch3hv_7t8U9LvYZbbJ82WHjVfUiRlt__PvYCSS4Z0bu41mNPi1SicJOoMEZjAG7zOPyIXV8xGIKuRbhdYlSCiScg6fx4m-rLj6u97z5uqaNp9r1q8Fxq5v_Q"/>
+<span class="font-headline-md text-headline-md font-bold text-primary-container hidden sm:block">ASS Auto Garage</span>
+</div>
+<div class="hidden lg:flex items-center gap-8">
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="home.html">Home</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="about.html">About</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="serviece.html">Services</a>
+<a class="font-body-md text-primary-container font-bold border-b-2 border-primary-container pb-1" href="gallery.html">Gallery</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="offerc.html">Offers</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="contact.html">Contact Us</a>
+</div>
+<a href="book.html"><button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-label-md uppercase active:scale-95 transition-all yellow-glow">
+                Book Now
+            </button></a>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A cinematic, low-angle shot of a meticulously detailed luxury supercar parked inside a high-tech, darkly lit automotive garage. The scene is illuminated by glowing linear overhead lights reflecting perfectly off the car's mirror-like black finish. The atmosphere is sophisticated and premium, dominated by deep charcoal tones and subtle golden light reflections." style="background-image: url('images/nli.jpg')">
+<div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile">
+<nav class="flex justify-center gap-2 mb-4 text-label-md font-label-md text-on-surface-variant">
+<a href="home.html"><span>Home</span></a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary">Gallery</span>
+</nav>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg mb-4 text-on-surface">Our Work Gallery</h1>
+<p class="text-body-lg font-body-lg max-w-2xl mx-auto text-on-surface-variant">Explore our work gallery to see high-quality **car painting, denting, scratch repair, and auto body restoration** projects completed by **ASS Auto Garage in Khanpur, Punjab, Pakistan**.
+</p>
+</div>
+</section>
+<!-- Intro Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg mb-stack-sm text-primary">Quality Work, Perfect Finish</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-3xl mx-auto">
+            At ASS Auto Garage, we treat every vehicle as a masterpiece. From intricate detailing to complete structural restoration, our facility in Khanpur, Punjab, is equipped with state-of-the-art technology to ensure your car returns to the road in showroom condition.
+        </p>
+</section>
+<!-- Filterable Gallery -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-wrap justify-center gap-4 mb-stack-lg">
+
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-md" id="gallery-grid">
+<div class="gallery-item glass-card rounded-xl overflow-hidden group" data-category="painting">
+<div class="h-64 overflow-hidden relative">
+<img alt="Color Matching Service" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/c1.png"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<span class="text-primary font-bold">Color Match Precision</span>
+</div>
+</div>
+</div>
+<div class="gallery-item glass-card rounded-xl overflow-hidden group" data-category="painting">
+<div class="h-64 overflow-hidden relative">
+<img alt="Professional Painting Booth" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/jeep1.png"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<span class="text-primary font-bold">Expert Spray Techniques</span>
+</div>
+</div>
+</div>
+<div class="gallery-item glass-card rounded-xl overflow-hidden group" data-category="detailing">
+<div class="h-64 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-end sports car undergoing professional detailing in a modern workshop. A technician is using a buffer on the deep metallic blue paint under bright, clinical LED strip lights. The floor is a polished dark epoxy, reflecting the car's sleek lines. The atmosphere is focused and highlights craftsmanship." style="background-image: url('images/jp.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<span class="text-primary font-bold">Showroom Finish Detail</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Before & After Slider -->
+<section class="py-stack-lg bg-surface-container-low">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg mb-4">Precision Restoration</h2>
+<p class="text-on-surface-variant">Slide to see the magic of our expert structural repair.</p>
+</div>
+<div class="before-after-slider glass-card rounded-2xl h-[500px] w-full" id="main-slider">
+<!-- After image (Base) -->
+<img class="after-image" data-alt="The exact same luxury sedan from the previous prompt, now perfectly restored and parked in a bright, modern, and clean automotive studio. The rear quarter panel is flawlessly smooth, with a deep, reflective mirror finish paint that glows under professional studio lights." src="images/c1.png"/>
+<!-- Before image (Clipped) -->
+<div class="before-image">
+<img class="w-full h-full object-cover" data-alt="A photo of a luxury sedan with a heavily dented rear quarter panel and scratched paint, parked in a dimly lit, slightly messy prep area of a garage. This is the 'before' image of an automotive restoration project." src="images/cultus.jpeg"/>
+</div>
+<!-- Slider Handle -->
+<div class="slider-handle"></div>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-stack-lg text-center">Featured Projects</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<div class="glass-card p-stack-md flex flex-col gap-4 rounded-2xl group">
+<div class="h-80 rounded-xl overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A side-profile shot of a classic luxury sedan that has undergone a complete color change to a deep, matte charcoal grey." style="background-image: url('images/nl.jfif')"></div>
+</div>
+<div>
+<span class="inline-block px-3 py-1 bg-primary/20 text-primary rounded-lg text-xs font-bold mb-2">FULL REPAINT</span>
+<h3 class="font-headline-md text-headline-md">Luxury Sedan Transformation</h3>
+<p class="text-on-surface-variant">Complete disassembly and custom color change with premium ceramic clear coat for a matte-satin finish.</p>
+</div>
+</div>
+<div class="glass-card p-stack-md flex flex-col gap-4 rounded-2xl group">
+<div class="h-80 rounded-xl overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A wide-angle shot of a high-end luxury SUV sitting on a hydraulic lift in a spacious, modern workshop." style="background-image: url('images/lc.jpg')"></div>
+</div>
+<div>
+<span class="inline-block px-3 py-1 bg-primary/20 text-primary rounded-lg text-xs font-bold mb-2">STRUCTURAL REPAIR</span>
+<h3 class="font-headline-md text-headline-md">SUV Body Restoration</h3>
+<p class="text-on-surface-variant">Precision chassis realignment and denting work on a high-end SUV, restoring it to factory specifications.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Workshop Moments -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-stack-lg text-center">Workshop Moments</h2>
+<div class="masonry">
+<div class="masonry-item glass-card p-4 rounded-2xl">
+<img alt="The Expert Team" class="w-full rounded-xl" src="images/kl.jpg"/>
+<p class="mt-4 font-bold text-center">The Masterminds of Precision</p>
+</div>
+<div class="masonry-item glass-card p-4 rounded-2xl">
+<div class="w-full h-96 bg-cover bg-center rounded-xl" data-alt="A close-up of a technician's gloved hands meticulously applying a high-grade ceramic coating." style="background-image: url('images/pol.jfif')"></div>
+<p class="mt-4 font-bold text-center">Ceramic Coating Detail</p>
+</div>
+<div class="masonry-item glass-card p-4 rounded-2xl">
+<div class="w-full h-64 bg-cover bg-center rounded-xl" data-alt="Inside a high-tech car painting booth." style="background-image: url('images/win.png')"></div>
+<p class="mt-4 font-bold text-center">Controlled Paint Environment</p>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-stack-lg bg-surface-container-low">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-stack-lg text-center">Client Impressions</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<div class="glass-card p-stack-md rounded-2xl">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic mb-6 text-on-surface-variant">"The best car painting service in Khanpur. My sonata looks brand new, and the color match is absolutely flawless. Highly recommended!"</p>
+<p class="font-bold">- Ahmed Raza</p>
+</div>
+<div class="glass-card p-stack-md rounded-2xl">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic mb-6 text-on-surface-variant">"Mere SUV painting k baad dekhna par aysa lag raha tha k ye abhe showroom say li hai.Highly recommended! "</p>
+<p class="font-bold">- Ali Khan</p>
+</div>
+<div class="glass-card p-stack-md rounded-2xl">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic mb-6 text-on-surface-variant">"Ye log car par jis tarhan ka kaam karte hain wo bohat kamal hai!"</p>
+<p class="font-bold">- Bilal Hassan</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-stack-lg">
+<div class="glass-card rounded-3xl p-stack-lg text-center overflow-hidden relative">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg mb-6">Want Your Car To Look Brand New?</h2>
+<p class="text-body-lg text-on-surface-variant mb-stack-lg max-w-2xl mx-auto">Get a free estimate for your vehicle today. Our experts are ready to bring your car back to life.</p>
+<div class="flex flex-col md:flex-row justify-center gap-4">
+<a href="book.html"><button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-xl font-bold hover:scale-105 active:scale-95 transition-all">
+                    Book Now
+                </button></a>
+<a href="contact.html"><button class="border border-white/20 bg-white/5 backdrop-blur px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition-all">
+                    Contact Us
+                </button></a>
+</div>
+</div>
+</section>
+</main>
+
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/923018675548" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="white">
+    <path d="M19.11 17.51c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.67-2.1-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.08 2.9 1.23 3.1.15.2 2.12 3.24 5.14 4.55.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.17-2.42-.07-.12-.27-.2-.57-.35z"/>
+    <path d="M16.02 3C8.83 3 3 8.82 3 16c0 2.54.74 5.02 2.13 7.14L3 29l5.99-2.08A12.93 12.93 0 0 0 16.02 29C23.2 29 29 23.18 29 16S23.2 3 16.02 3zm0 23.5c-2.1 0-4.15-.57-5.94-1.66l-.42-.25-3.56 1.24 1.17-3.47-.27-.45A10.44 10.44 0 0 1 5.5 16C5.5 10.2 10.22 5.5 16.02 5.5S26.5 10.2 26.5 16s-4.7 10.5-10.48 10.5z"/>
+  </svg>
+</a>
+
+<style>
+.whatsapp-float{
+    position:fixed;
+    right:30px;
+    bottom:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+    z-index:9999;
+    transition:.3s;
+    text-decoration:none;
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.12);
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+@media(max-width:768px){
+    .whatsapp-float{
+        width:70px;
+        height:70px;
+        right:35px;
+        bottom:30px;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-white/5 py-stack-lg">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:col-span-4 lg:grid-cols-4 gap-stack-md">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-4 mb-6">
+<img alt="ASS Auto Garage Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRjmuZRtspax2yJA2i6Gx0ENlxKYPvbTI7UxlQbDKn2wtIQ9ECf3AhzHLMQoIcHaD6VQlq4pb24BsQ36u1XrmdyAgLvAQdi9w2Mt5N5j2sEdT52WrXQoYM3K0-4OaD1hch3hv_7t8U9LvYZbbJ82WHjVfUiRlt__PvYCSS4Z0bu41mNPi1SicJOoMEZjAG7zOPyIXV8xGIKuRbhdYlSCiScg6fx4m-rLj6u97z5uqaNp9r1q8Fxq5v_Q"/>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">ASS Auto Garage</span>
+</div>
+<p class="text-on-surface-variant mb-6 pr-8">The premium automotive restoration destination in Khanpur, Punjab. We specialize in painting, denting, and high-end detailing for luxury vehicles.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:text-primary transition-colors" href="#">FB</a>
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:text-primary transition-colors" href="#">IG</a>
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:text-primary transition-colors" href="#">TT</a>
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:text-primary transition-colors" href="#">WA</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-primary">Services</h4>
+<ul class="flex flex-col gap-3 text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Car Painting</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Denting &amp; Bodywork</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Ceramic Coating</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Complete Restoration</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-primary">Contact</h4>
+<ul class="flex flex-col gap-3 text-on-surface-variant">
+<li>Khanpur, Punjab, Pakistan</li>
+<li>+92 301 8675548</li>
+
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-stack-lg pt-6 border-t border-white/5 text-center text-body-sm text-on-surface-variant">
+        © 2026 ASS Auto Garage. Khanpur, Punjab, Pakistan. All Rights Reserved.
+    </div>
+</footer>
+<script>
+// Logic from <!-- STITCH_THREEJS_START:ANIMATION_55 class="" -->
+<div class="" style="display:block;width:100%;height:100%;min-height:200px;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_55" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_55');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  
+const sliders = document.querySelectorAll('.before-after-slider');
+
+sliders.forEach(slider => {
+    const handle = slider.querySelector('.slider-handle');
+    const beforeImage = slider.querySelector('.before-image');
+    let isResizing = false;
+
+    const setPosition = (x) => {
+        const rect = slider.getBoundingClientRect();
+        let position = ((x - rect.left) / rect.width) * 100;
+        
+        // Constraints
+        position = Math.max(0, Math.min(100, position));
+        
+        handle.style.left = `${position}%`;
+        beforeImage.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+    };
+
+    handle.addEventListener('mousedown', () => isResizing = true);
+    window.addEventListener('mouseup', () => isResizing = false);
+    window.addEventListener('mousemove', (e) => {
+        if (!isResizing) return;
+        setPosition(e.clientX);
+    });
+
+    // Touch support
+    handle.addEventListener('touchstart', () => isResizing = true);
+    window.addEventListener('touchend', () => isResizing = false);
+    window.addEventListener('touchmove', (e) => {
+        if (!isResizing) return;
+        setPosition(e.touches[0].clientX);
+    });
+});
+
+// Simple Filter Logic
+const filterBtns = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        
+        filterBtns.forEach(b => b.classList.remove('bg-primary', 'text-black'));
+        btn.classList.add('bg-primary', 'text-black');
+
+        galleryItems.forEach(item => {
+            if (filter === 'all' || item.dataset.category === filter) {
+                item.style.display = 'block';
+                setTimeout(() => item.style.opacity = '1', 10);
+            } else {
+                item.style.opacity = '0';
+                setTimeout(() => item.style.display = 'none', 300);
+            }
+        });
+    });
+});
+
+})();
+</script>
+</div>
+
+</script>
+</body></html>

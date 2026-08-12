@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us | ASS Auto Garage - Precision Automotive Care</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#20201f",
+                    "on-primary-fixed-variant": "#594400",
+                    "on-tertiary-fixed-variant": "#004d62",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "tertiary-container": "#6cd8ff",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary": "#c5edff",
+                    "surface-bright": "#393939",
+                    "primary": "#ffe4a8",
+                    "on-surface-variant": "#d1c5ae",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-surface": "#e5e2e1",
+                    "tertiary-fixed-dim": "#67d4fa",
+                    "primary-container": "#f4c542",
+                    "secondary-container": "#454747",
+                    "surface-tint": "#efc13e",
+                    "surface-container-highest": "#353535",
+                    "on-secondary": "#2f3131",
+                    "secondary": "#c6c6c7",
+                    "primary-fixed-dim": "#efc13e",
+                    "on-primary": "#3e2e00",
+                    "on-error": "#690005",
+                    "on-background": "#e5e2e1",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "background": "#131313",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-dim": "#131313",
+                    "inverse-on-surface": "#313030",
+                    "inverse-primary": "#765b00",
+                    "on-tertiary-container": "#005d75",
+                    "on-tertiary-fixed": "#001f29",
+                    "surface-container-lowest": "#0e0e0e",
+                    "primary-fixed": "#ffdf94",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-fixed": "#241a00",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#b9eaff",
+                    "surface-variant": "#353535",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-primary-container": "#6b5200",
+                    "surface-container-low": "#1b1b1b",
+                    "outline-variant": "#4e4634",
+                    "surface": "#131313",
+                    "outline": "#9a907b",
+                    "on-tertiary": "#003544",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "stack-md": "24px",
+                    "margin-mobile": "20px",
+                    "stack-lg": "48px",
+                    "stack-sm": "12px",
+                    "container-max": "1280px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    header{background-color: #22221C;}
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-nav {
+            background: rgba(19, 19, 19, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(244, 197, 66, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- Header / Navigation -->
+<header class="fixed top-0 w-full z-50 glass-nav" style="background-color: #22221C;">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<img alt="ASS Auto Garage" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRjmuZRtspax2yJA2i6Gx0ENlxKYPvbTI7UxlQbDKn2wtIQ9ECf3AhzHLMQoIcHaD6VQlq4pb24BsQ36u1XrmdyAgLvAQdi9w2Mt5N5j2sEdT52WrXQoYM3K0-4OaD1hch3hv_7t8U9LvYZbbJ82WHjVfUiRlt__PvYCSS4Z0bu41mNPi1SicJOoMEZjAG7zOPyIXV8xGIKuRbhdYlSCiScg6fx4m-rLj6u97z5uqaNp9r1q8Fxq5v_Q"/>
+<span class="font-headline-md text-headline-md font-bold text-primary-container hidden sm:block">ASS Auto Garage</span>
+</div>
+<div class="hidden lg:flex items-center gap-8">
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="home.html">Home</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="about.html">About</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="serviece.html">Services</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="gallery.html">Gallery</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="offerc.html">Offers</a>
+<a class="font-body-md text-primary-container font-bold border-b-2 border-primary-container pb-1" href="contact.html">Contact Us</a>
+</div>
+<a href="book.html"><button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-label-md uppercase active:scale-95 transition-all yellow-glow">
+                Book Now
+            </button></a>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[400px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center bg-fixed brightness-[0.4]" data-alt="A wide-angle cinematic shot of a high-end luxury automotive workshop at night. The space features polished concrete floors reflecting soft overhead LED panel lights and yellow accent stripes along the dark charcoal walls. High-performance sports cars are visible in the background being meticulously serviced by professional staff in a clean, sophisticated environment with a premium dark aesthetic." style="background-image: url('images/3c.jpg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile">
+<h1 class="font-display-lg text-display-lg text-primary-container mb-4 reveal">Contact ASS Auto Garage</h1>
+<h1 class="font-display-lg text-display-lg text-primary-container mb-4 reveal">Khanpur</h1>
+<nav class="flex items-center justify-center gap-2 font-label-md text-on-surface-variant reveal" style="transition-delay: 200ms">
+<a class="hover:text-primary transition-colors" href="home.html">Home</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary">Contact Us</span>
+</nav>
+</div>
+</section>
+<!-- Contact Info Grid -->
+<section class="max-w-container-max mx-auto px-margin-desktop -mt-20 relative z-20 pb-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="glass-card p-8 rounded-xl flex flex-col items-center text-center reveal" style="transition-delay: 100ms">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">call</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold mb-2">Phone</h3>
+<p class="text-on-surface-variant">+92 301 8675548 </p>
+<p class="text-on-surface-variant"></p>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center text-center reveal" style="transition-delay: 200ms">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">chat</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold mb-2">WhatsApp</h3>
+<p class="text-on-surface-variant">Click to Chat</p>
+<a class="text-primary-container font-bold mt-2" href="https://wa.me/923018675548">Connect Now</a>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center text-center reveal" style="transition-delay: 300ms">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold mb-2">Location</h3>
+<p class="text-on-surface-variant">Zahir pir Road, Khanpur</p>
+<p class="text-on-surface-variant">Punjab, Pakistan</p>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center text-center reveal" style="transition-delay: 400ms">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">schedule</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold mb-2">Working Hours</h3>
+<p class="text-on-surface-variant">Sun - Thu</p>
+<p class="text-on-surface-variant">8 AM - 7 PM</p>
+</div>
+</div>
+</section>
+<!-- Contact Form & Map Section -->
+<section class="max-w-container-max mx-auto px-margin-desktop py-stack-lg">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-start">
+<!-- Form -->
+<div class="reveal">
+<h2 class="font-headline-lg text-headline-lg mb-stack-sm text-primary-container">Send Us A Message</h2>
+<p class="text-on-surface-variant mb-stack-md max-w-lg">Get a quote or schedule a consultation for your vehicle's premium care. Our technical masters will get back to you shortly.</p>
+<form class="space-y-stack-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-sm">
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant uppercase">Full Name</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none" placeholder="Abdullah" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant uppercase">Phone Number</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none" placeholder="+92 XXX XXXXXXX" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-sm">
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant uppercase">Email Address</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none" placeholder="Abdullah@example.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant uppercase">Vehicle Model</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none" placeholder="e.g. BMW M9 2025" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant uppercase">Required Service</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none appearance-none">
+<option>Select a Service</option>
+<option>Full Car Paint</option>
+<option>Jeep Custom Paint</option>
+<option>Scratch &amp; Dent Repair</option>
+<option>Ceramic Coating</option>
+<option>Interior Detailing</option>
+<option>Engine Diagnostic</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant uppercase">Message</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none resize-none" placeholder="How can we help you?" rows="4"></textarea>
+</div>
+<a href="https://wa.me/923018675548"><button class="w-full bg-primary-container text-on-primary font-headline-md py-4 rounded-xl hover:opacity-90 active:scale-[0.98] transition-all btn-glow uppercase tracking-wider" type="submit">
+                            Send Request
+                        </button></a>
+</form>
+</div>
+<!-- Map Placeholder -->
+<div class="h-full min-h-[500px] rounded-2xl overflow-hidden glass-card reveal" style="transition-delay: 200ms">
+<div class="w-full h-full grayscale hover:grayscale-0 transition-all duration-700" data-alt="A detailed map view of Khanpur, Punjab, highlighting the main roads and the precise location of the automotive garage. The map aesthetic is customized with dark mode styling, featuring neon gold markers and simplified street layouts to match the premium brand identity of ASS Auto Garage." data-location="Khanpur, Punjab"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1760.6421111520579!2d70.63904502737843!3d28.659626908091894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3939f7cd9789647d%3A0x6f7ac9b045b176e2!2sASS%20-%20Car%20Painting%20Workshop!5e0!3m2!1sen!2s!4v1785818396636!5m2!1sen!2s" width="600" height="670" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+</div>
+</section>
+<!-- Why Contact Us -->
+<section class="bg-surface-container-lowest py-stack-lg">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-stack-lg reveal">
+<h2 class="font-headline-lg text-headline-lg text-primary-container mb-4">The Premium Difference</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Why discerning vehicle owners choose ASS Auto Garage for their most valuable assets.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="p-8 border border-white/5 rounded-2xl hover:bg-white/5 transition-colors group reveal" style="transition-delay: 100ms">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4 group-hover:scale-110 transition-transform">verified_user</span>
+<h4 class="font-headline-md text-body-lg font-bold mb-3">Expert Consultation</h4>
+<p class="text-on-surface-variant">Speak directly with master technicians who understand high-performance engineering.</p>
+</div>
+<div class="p-8 border border-white/5 rounded-2xl hover:bg-white/5 transition-colors group reveal" style="transition-delay: 200ms">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4 group-hover:scale-110 transition-transform">bolt</span>
+<h4 class="font-headline-md text-body-lg font-bold mb-3">Fast Response</h4>
+<p class="text-on-surface-variant">Our team prioritizes communication, ensuring you get updates and quotes within hours.</p>
+</div>
+<div class="p-8 border border-white/5 rounded-2xl hover:bg-white/5 transition-colors group reveal" style="transition-delay: 300ms">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4 group-hover:scale-110 transition-transform">precision_manufacturing</span>
+<h4 class="font-headline-md text-body-lg font-bold mb-3">Technical Mastery</h4>
+<p class="text-on-surface-variant">From precision bodywork to advanced diagnostics, we handle it with surgical accuracy.</p>
+</div>
+</div>
+</div>
+</section>
+<br>
+<a class="glass-card px-8 py-4 rounded-full flex items-center gap-3 hover:bg-primary-container hover:text-on-primary transition-all active:scale-95 group reveal" href="https://wa.me/923018675548" style="transition-delay: 300ms">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-md">WHATSAPP</span>
+</a>
+</div>
+</section>
+<br>
+<!-- CTA Banner -->
+<section class="max-w-container-max mx-auto px-margin-desktop pb-stack-lg reveal">
+<div class="relative rounded-3xl overflow-hidden p-stack-lg text-center">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center brightness-[0.3]" data-alt="A focused high-contrast shot of a master painter wearing a respirator working inside a brightly lit clean spray booth. A high-end sports car sits half-painted with perfect reflections on the wet coat. The scene is dominated by a dark aesthetic with vibrant yellow highlights and intense focus on technical detail and perfection." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCZSJz3FRbi5T8EgvZI0Y53seKz0-79ARYOJnfJfJaCxI7jgG0SgmzlRxSFSoQvIFohlsqIX8zullZO-0jPFRKG6j13z8Kb2ocSbK3k_61FNuC3fmXOKIvqTaFlFVRBA5-_8EcEF3vWVJ5W1Tcq_a_hz-TDy8OlBzB6YUtnTBXQMp59TwvtOuTAmyFsB0CU2ND4Qex_boA8RqHjk7_1MD-_IgmryQsvcQH3Y1RhTchoBySYWerUpU8ckg')"></div>
+</div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-headline-lg md:text-display-lg text-primary-container mb-stack-sm">Need Professional Car Service?</h2>
+<p class="text-on-surface text-body-lg mb-stack-md max-w-xl mx-auto">Experience the intersection of technical mastery and automotive art. Book your slot today.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a href="book.html"><button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-xl font-headline-md btn-glow active:scale-95 transition-all">Book Now</button>
+<a href="tel:+923018675548"><button class="glass-nav text-on-surface border border-white/20 px-10 py-4 rounded-xl font-headline-md hover:bg-white/10 active:scale-95 transition-all">Call Now</button></a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/923018675548" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="white">
+    <path d="M19.11 17.51c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.67-2.1-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.08 2.9 1.23 3.1.15.2 2.12 3.24 5.14 4.55.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.17-2.42-.07-.12-.27-.2-.57-.35z"/>
+    <path d="M16.02 3C8.83 3 3 8.82 3 16c0 2.54.74 5.02 2.13 7.14L3 29l5.99-2.08A12.93 12.93 0 0 0 16.02 29C23.2 29 29 23.18 29 16S23.2 3 16.02 3zm0 23.5c-2.1 0-4.15-.57-5.94-1.66l-.42-.25-3.56 1.24 1.17-3.47-.27-.45A10.44 10.44 0 0 1 5.5 16C5.5 10.2 10.22 5.5 16.02 5.5S26.5 10.2 26.5 16s-4.7 10.5-10.48 10.5z"/>
+  </svg>
+</a>
+
+<style>
+.whatsapp-float{
+    position:fixed;
+    right:30px;
+    bottom:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+    z-index:9999;
+    transition:.3s;
+    text-decoration:none;
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.12);
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+@media(max-width:768px){
+    .whatsapp-float{
+        width:70px;
+        height:70px;
+        right:35px;
+        bottom:30px;
+    }
+}
+</style>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full border-t border-white/5">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg max-w-container-max mx-auto px-margin-desktop py-stack-lg">
+<div class="space-y-4">
+<div class="font-headline-md text-headline-md font-bold text-primary-container">ASS Auto Garage</div>
+<p class="text-on-surface-variant font-body-md text-body-md">Precision engineering for those who demand excellence in every detail. Your vehicle's legacy starts here.</p>
+</div>
+<div>
+<h4 class="text-on-surface font-bold mb-4">Quick Links</h4>
+<ul class="space-y-2 text-on-surface-variant">
+<li><a class="hover:text-primary-container transition-colors" href="#">Services</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Our Process</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Gallery</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-surface font-bold mb-4">Contact Info</h4>
+<ul class="space-y-2 text-on-surface-variant">
+<li>Zahir pir Road near Sadar police station, Khanpur, district RYK</li>
+<li>Punjab, Pakistan</li>
+<li>+92 301 8675548</li>
+</ul>
+</div>
+<div>
+
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-body-md">
+<div>© 2026 ASS Auto Garage. Precision Engineering.</div>
+<div class="flex gap-stack-md">
+<a class="hover:text-primary-container transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary-container transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary-container transition-colors" href="#">Cookie Policy</a>
+<a class="hover:text-primary-container transition-colors" href="#">Sitemap</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Form submission micro-interaction
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const originalText = btn.innerText;
+                btn.innerText = 'Transmitting...';
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    btn.innerText = 'Message Sent';
+                    btn.classList.replace('bg-primary-container', 'bg-green-600');
+                    form.reset();
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.classList.replace('bg-green-600', 'bg-primary-container');
+                        btn.disabled = false;
+                    }, 3000);
+                }, 1500);
+            });
+        }
+    </script>
+</body></html>
